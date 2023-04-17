@@ -1,0 +1,40 @@
+.newsGrid {
+  width: 100%;
+}
+
+.cardLook {
+  overflow-y: scroll;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.newsGridLook {
+  height: 300px;
+  min-width: auto;
+}
+
+.cardLook:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.newsCardText {
+  white-space: pre-line;
+}
+
+.newsCardBody {
+  mask-image: linear-gradient(180deg, #000 60%, transparent);
+}
+
+.boxTitle {
+  max-width: 250px;
+}
+
+.boxHover {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.boxHover:hover {
+  scale: 1.05;
+}
