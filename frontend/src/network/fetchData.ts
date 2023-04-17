@@ -1,4 +1,6 @@
-export default async function fetchData(
+import { NewsArray } from "../models/News";
+
+async function fetchData(
   input: RequestInfo,
   init?: RequestInit
 ) {
@@ -22,4 +24,17 @@ export default async function fetchData(
       );
     }
   }
+}
+
+export async function fetchNewsData(country: string) {
+  async function fetchNews(): Promise<NewsArray> {
+    const response = await fetchData(
+      `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${process.env.REACT_APP_KEY}`,
+      {
+        method: "GET",
+      }
+    );
+    return response.json();
+  }
+  return fetchNews();
 }

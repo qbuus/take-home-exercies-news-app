@@ -9,7 +9,7 @@ import {
   Button,
 } from "react-bootstrap";
 import styles from "../../styles/News.module.css";
-import fetchNewsData from "./NewsFetch";
+import { fetchNewsData } from "../../network/fetchData";
 import { useDispatch, useSelector } from "react-redux";
 import { newsCountUpdate, RootState } from "../../store/store";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
@@ -46,7 +46,7 @@ const Main = ({ country }: CountryParams) => {
     } finally {
       setNewsLoading(false);
     }
-  }, [country]);
+  }, [country, dispatch]);
 
   React.useEffect(() => {
     let isSubscribed = false;
@@ -104,10 +104,13 @@ const Main = ({ country }: CountryParams) => {
             <Modal.Body>
               <div className="d-flex flex-column gap-3">
                 {modalData?.description !== null ? (
-                  <p className="h6">{modalData?.description}</p>
+                  <p className="h6">
+                    {modalData?.description}
+                  </p>
                 ) : (
                   <p className="h6">
-                    Description has not been provided to api yet
+                    Description has not been provided to api
+                    yet
                   </p>
                 )}
                 {modalData?.url !== null ? (
@@ -135,7 +138,9 @@ const Main = ({ country }: CountryParams) => {
           <Button onClick={() => fetchData()}>
             Fetch Again !
           </Button>
-          <p>Something went wrong. Please Refresh the page !</p>
+          <p>
+            Something went wrong. Please Refresh the page !
+          </p>
         </>
       )}
     </Container>
