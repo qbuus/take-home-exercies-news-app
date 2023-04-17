@@ -76,7 +76,7 @@ const Main = ({ country }: CountryParams) => {
         md={gridState ? 2 : 0}
         xl={gridState ? 3 : 0}
       >
-        {newsData.map((news, index) => (
+        {newsData?.map((news, index) => (
           <Col
             key={index}
             onClick={(e) => handleClick(e, index)}
