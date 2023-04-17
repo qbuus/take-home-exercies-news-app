@@ -27,12 +27,9 @@ import { NewsArray } from "../models/News";
 // }
 
 export async function fetchNewsData(country: string) {
-  async function fetchNews(): Promise<NewsArray> {
+  async function fetchNews() {
     const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${process.env.REACT_APP_KEY}`,
-      {
-        method: "GET",
-      }
+      `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${process.env.REACT_APP_KEY}`
     );
     return response.json();
   }
